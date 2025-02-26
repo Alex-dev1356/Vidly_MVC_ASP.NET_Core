@@ -13,12 +13,19 @@ namespace Vidly_MVC_ASP.NET_Core
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
-            routes.MapRoute(
-                name: "MoviesByReleaseDate",
-                url: "movies/released/{year}/{month}",
-                new { controller = "Movies", action = "ByReleaseDate" },
-                new { year = @"\d{4}",month = @"\d{2}" });
-                //new { year = @"2015|2016",month = @"\d{2}" });
+            //Using new way of Creating Custom Routes using Attribute Routing
+            //Enabling Attribute Routing
+            routes.MapMvcAttributeRoutes();
+
+            //Old way of creating custom routes
+            #region
+            //routes.MapRoute(
+            //    name: "MoviesByReleaseDate",
+            //    url: "movies/released/{year}/{month}",
+            //    new { controller = "Movies", action = "ByReleaseDate" },
+            //    new { year = @"\d{4}",month = @"\d{2}" });
+            //    new { year = @"2015|2016",month = @"\d{2}" });
+            #endregion
 
             routes.MapRoute(
                 name: "Default",
