@@ -18,7 +18,16 @@ namespace Vidly_MVC_ASP.NET_Core.Controllers
             //return Content("Hello world");
             //return HttpNotFound();
             //return new EmptyResult();
-            return RedirectToAction("Index", "Home", new { page = 1, sortBy = "name" });
+            //return RedirectToAction("Index", "Home", new { page = 1, sortBy = "name" });
+
+            //Two other ways to pass data to the view
+            //Using ViewData
+            //ViewData["Movie"] = movie;
+
+            //Using ViewBag
+            //ViewBag.Movie = movie;
+
+            return View(movie);
         }
 
         public ActionResult Edit(int id)
