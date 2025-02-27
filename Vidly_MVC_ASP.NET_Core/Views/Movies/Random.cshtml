@@ -1,4 +1,8 @@
-﻿@model Vidly_MVC_ASP.NET_Core.Models.Movie
+﻿@*Rendering data through Model Property*@
+@*@model Vidly_MVC_ASP.NET_Core.Models.Movie*@
+
+@*Rendering data through ViewModel Property*@
+@model Vidly_MVC_ASP.NET_Core.ViewModels.RandomMovieViewModel
 
 @{
     ViewBag.Title = "Random";
@@ -6,10 +10,14 @@
 }
 
 @*Using Model Property to display data*@
-<h2>@Model.Name</h2>
+@*<h2>@Model.Name</h2>*@
 
 @*Using ViewData Property, but it's ugly, compared when using the Model Property*@
 @*<h2>@( ((Movie) ViewData["Movie"]).Name )</h2>*@
 
 @*Using ViewBag Property, but it's ugly, compared when using the Model Property*@
 @*<h2>@ViewBag.Movie</h2>*@
+
+@*Using ViewModel Property to display data*@
+<h2>@Model.Movie.Name</h2>
+@Model.Customers

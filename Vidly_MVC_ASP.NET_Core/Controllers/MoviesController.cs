@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Vidly_MVC_ASP.NET_Core.Models;
+using Vidly_MVC_ASP.NET_Core.ViewModels;
 
 namespace Vidly_MVC_ASP.NET_Core.Controllers
 {
@@ -27,7 +28,27 @@ namespace Vidly_MVC_ASP.NET_Core.Controllers
             //Using ViewBag
             //ViewBag.Movie = movie;
 
-            return View(movie);
+            //Adding Lists of Customers
+            var customers = new List<Customer>
+            {
+                new Customer { Name = "Customer 1" },
+                new Customer { Name = "Customer 2" }
+            };
+
+            //Creating a ViewModel Object
+            var viewModel = new RandomMovieViewModel()
+            {
+                Movie = movie,
+                Customers = customers
+            };
+
+            //Sending ViewModel to View
+            return View(viewModel);
+            
+            //return View(movie);
+
+
+
         }
 
         public ActionResult Edit(int id)
